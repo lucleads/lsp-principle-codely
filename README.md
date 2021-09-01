@@ -8,9 +8,25 @@ El principio de sustitución de Liskov, establece que:
 
 ### Despliegue
 
-Para desplegar el proyecto en un contenedor docker, abrir una terminal en el directorio donde se encuentre el archivo `docker-compose.yml` y ejecutar el siguiente comando:
+Para desplegar el proyecto en un contenedor docker, abrir una terminal en el directorio donde se encuentre el archivo `docker-compose.yml`.
+
+En este directorio, creamos un archivo de variables de entorno (`.env`) con la siguiente estructura:
+
+```
+CONTAINER_NAME=lsp_principle
+PHP_VERSION=8.0
+PORT=81 
+```
+
+y ejecutamos el siguiente comando:
 
 `docker-compose up -d`
+
+Una vez creado el contenedor, accedemos a este con el comando:
+
+`docker exec -it container_id /bin/bash`
+
+Ya dentro del contenedor, ejecutamos el comando `composer install` para generar la carpeta ***vendor*** con todas las dependencias de nuestro proyecto.
 
 ### Requisitos
 
